@@ -6,7 +6,7 @@ const webpack = require('webpack');
 const TARGET = process.env.npm_lifecycle_event;
 const PATHS = {
   app: path.join(__dirname, "./js/app.js"),
-  widgets: glob.sync("./assets/js/widgets/**/*.js"),
+  widgets: glob.sync("./js/widgets/**/*.js"),
   build: path.join(__dirname, "../priv/static/js"),
   gridster: path.join(__dirname, 'node_modules/gridster/dist'),
   d3: path.join(__dirname, 'node_modules/d3/d3.min.js'),
@@ -29,7 +29,7 @@ const common = {
   },
   output: {
     path: PATHS.build,
-    publicPath: '/assets/',
+    // publicPath: '/assets/',
     filename: '[name].js'
   },
   module: {

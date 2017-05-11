@@ -13,11 +13,18 @@ defmodule MonitoringDashboard.Web.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :event_stream do
+    plug :accepts, ["text/event-stream"]
+  end
+
   scope "/", MonitoringDashboard.Web do
     pipe_through :browser # Use the default browser stack
-
-    get "/", PageController, :index
     get "/dashboards/basic", DashboardController, :show
+  end
+
+  scope "/events", MonitoringDashboard.Web do
+    # pipe_through(:event_stream)
+    get "/", EventController, :index
   end
 
   # Other scopes may use custom stacks.

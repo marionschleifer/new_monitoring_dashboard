@@ -5,7 +5,7 @@ defmodule MonitoringDashboard.Web.EventController do
     conn = conn
     |> put_resp_content_type("text/event-stream")
     |> send_chunked(200)
-    send_message(conn, "hi")
+    {:ok, conn} = send_message(conn, "hi")
     conn
   end
 

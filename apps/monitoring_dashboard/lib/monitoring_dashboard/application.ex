@@ -13,7 +13,9 @@ defmodule MonitoringDashboard.Application do
     import Supervisor.Spec, warn: false
 
     Supervisor.start_link([
-      
+
+      worker(MonitoringDashboard.Polling, [])
+
     ], strategy: :one_for_one, name: MonitoringDashboard.Supervisor)
   end
 end

@@ -31,7 +31,7 @@ defmodule MonitoringDashboard.Mixfile do
   #
   # Type `mix help deps` for examples and options.
   defp deps do
-    []
+    [httpoison: "~> 0.10.0"]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
